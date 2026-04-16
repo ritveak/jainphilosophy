@@ -1,0 +1,18 @@
+package com.jain.core.state;
+
+public enum Gunasthana {
+    MITHYATVA,
+    SASVADANA,
+    MISHRA,
+    AVIRATA_SAMYAK,
+    DESHA_VIRATA,
+    PRAMATTA_SAMYATA,
+    APRAMATTA_SAMYATA,
+    APOORVA_KARANA,
+    ANIVRITTI_KARANA,
+    SUKSHMA_SAMPARAYA,
+    UPASHANTA_MOHA,
+    KSHINA_MOHA,
+    SAYOGA_KEVALI,
+    AYOGA_KEVALI
+}

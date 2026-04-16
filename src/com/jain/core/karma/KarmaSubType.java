@@ -1,0 +1,72 @@
+package com.jain.core.karma;
+
+public enum KarmaSubType {
+    // Jnanavarniya (5)
+    MATI_JNANAVARNIYA,
+    SHRUTA_JNANAVARNIYA,
+    AVADHI_JNANAVARNIYA,
+    MANAHPARYAYA_JNANAVARNIYA,
+    KEVALA_JNANAVARNIYA,
+
+    // Darshanavarniya (9)
+    CHAKSHU_DARSHANAVARNIYA,
+    ACHAKSHU_DARSHANAVARNIYA,
+    AVADHI_DARSHANAVARNIYA,
+    KEVALA_DARSHANAVARNIYA,
+    NIDRA,
+    NIDRA_NIDRA,
+    PRACHALA,
+    PRACHALA_PRACHALA,
+    STYANARDDHI,
+
+    // Mohaniya (representative 28-branch nodes)
+    MITHYATVA,
+    SAMYAKTVA_MOHANIYA,
+    MISHRA,
+    KRODHA_ANANTANUBANDHI,
+    MAANA_ANANTANUBANDHI,
+    MAYA_ANANTANUBANDHI,
+    LOBHA_ANANTANUBANDHI,
+    HASYA,
+    RATI,
+    ARATI,
+    SHOKA,
+    BHAYA,
+    JUGUPSA,
+    PURUSHA_VEDA,
+    STRI_VEDA,
+    NAPUMSAKA_VEDA,
+
+    // Antaraya (5)
+    DANA_ANTARAYA,
+    LABHA_ANTARAYA,
+    BHOGA_ANTARAYA,
+    UPABHOGA_ANTARAYA,
+    VIRYA_ANTARAYA,
+
+    // Vedaniya (2)
+    SHATA_VEDANIYA,
+    ASHATA_VEDANIYA,
+
+    // Gotra (2)
+    UCCHA_GOTRA,
+    NICHA_GOTRA,
+
+    // Ayushya (4)
+    DEVA_AYUSHYA,
+    MANUSHYA_AYUSHYA,
+    TIRYANCH_AYUSHYA,
+    NARAKA_AYUSHYA,
+
+    // Nama (top-level branches)
+    GATI_NAMA,
+    JATI_NAMA,
+    SHARIRA_NAMA,
+    ANGOPANGA_NAMA,
+    SAMHANANA_NAMA,
+    SAMSTHANA_NAMA,
+    VARNA_NAMA,
+    GANDHA_NAMA,
+    RASA_NAMA,
+    SPARSHA_NAMA
+}
