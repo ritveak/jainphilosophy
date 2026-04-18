@@ -291,7 +291,9 @@ END OF PROMPT
 
 For reference here is a mermaid diagram detailing every bit of classification
 
+```mermaid
 graph TD
+
 
 %% ROOT
 Dravya["Dravya — Substance: fundamental reality with qualities and modes"] --> Astikay["Astikaya — Extensive substances: occupy multiple space-points"]
@@ -687,3 +689,4 @@ style VedniyaClassification fill:#ddd,stroke:#333
 style AyushyaClassification fill:#ddd,stroke:#333
 style GotraClassification fill:#ddd,stroke:#333
 style NamClassification fill:#ddd,stroke:#333
+```
