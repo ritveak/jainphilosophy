@@ -1,72 +1,81 @@
 package com.jain.core.karma;
 
-public enum KarmaSubType {
-    // Jnanavarniya (5)
-    MATI_JNANAVARNIYA,
-    SHRUTA_JNANAVARNIYA,
-    AVADHI_JNANAVARNIYA,
-    MANAHPARYAYA_JNANAVARNIYA,
-    KEVALA_JNANAVARNIYA,
+import com.jain.core.lexicon.Lexical;
 
-    // Darshanavarniya (9)
-    CHAKSHU_DARSHANAVARNIYA,
-    ACHAKSHU_DARSHANAVARNIYA,
-    AVADHI_DARSHANAVARNIYA,
-    KEVALA_DARSHANAVARNIYA,
-    NIDRA,
-    NIDRA_NIDRA,
-    PRACHALA,
-    PRACHALA_PRACHALA,
-    STYANARDDHI,
+/**
+ * Hindi: {@code Karm} ki up-prakaar / prakritiyan.
+ * English: Karma subtypes (prakritis) under each main karma type.
+ */
+public enum KarmaSubType implements Lexical {
+    MATI_GYAANAVARNIYA("Obscuring mati-jnana (sensory-cognition knowledge)"),
+    SHRUT_GYAANAVARNIYA("Obscuring shruta-jnana (scriptural knowledge)"),
+    AVADHI_GYAANAVARNIYA("Obscuring avadhi-jnana (clairvoyant knowledge)"),
+    MANAHPARYAAY_GYAANAVARNIYA("Obscuring manahparyaya-jnana (telepathic knowledge)"),
+    KEVAL_GYAANAVARNIYA("Obscuring kevala-jnana (omniscience)"),
 
-    // Mohaniya (representative 28-branch nodes)
-    MITHYATVA,
-    SAMYAKTVA_MOHANIYA,
-    MISHRA,
-    KRODHA_ANANTANUBANDHI,
-    MAANA_ANANTANUBANDHI,
-    MAYA_ANANTANUBANDHI,
-    LOBHA_ANANTANUBANDHI,
-    HASYA,
-    RATI,
-    ARATI,
-    SHOKA,
-    BHAYA,
-    JUGUPSA,
-    PURUSHA_VEDA,
-    STRI_VEDA,
-    NAPUMSAKA_VEDA,
+    CHAKSHU_DARSHANAVARNIYA("Obscuring ocular perception"),
+    ACHAKSHU_DARSHANAVARNIYA("Obscuring non-ocular perception"),
+    AVADHI_DARSHANAVARNIYA("Obscuring avadhi perception"),
+    KEVAL_DARSHANAVARNIYA("Obscuring kevala perception"),
+    NIDRA("Ordinary sleep obscuring perception"),
+    NIDRA_NIDRA("Deep sleep obscuring perception"),
+    PRACHALA("Drowsy wakefulness"),
+    PRACHALA_PRACHALA("Heavy drowsy wakefulness"),
+    STYAANARDDHI("Lethargy / psychic stupor obscuring perception"),
 
-    // Antaraya (5)
-    DANA_ANTARAYA,
-    LABHA_ANTARAYA,
-    BHOGA_ANTARAYA,
-    UPABHOGA_ANTARAYA,
-    VIRYA_ANTARAYA,
+    MITHYATAVA("Faith-deluding wrong belief"),
+    SAMYAKTVA_MOHANIYA("Faith-deluding obstruction of right belief"),
+    MISHR("Mixed faith-delusion"),
+    KRODH_ANANTANUBANDHI("Endless-binding anger passion"),
+    MAAN_ANANTANUBANDHI("Endless-binding pride passion"),
+    MAYA_ANANTANUBANDHI("Endless-binding deceit passion"),
+    LOBH_ANANTANUBANDHI("Endless-binding greed passion"),
+    HASYA("Laughter / frivolity (non-passion delusion)"),
+    RATI("Attachment / liking (non-passion delusion)"),
+    ARATI("Dislike / aversion (non-passion delusion)"),
+    SHOK("Sorrow (non-passion delusion)"),
+    BHAY("Fear (non-passion delusion)"),
+    JUGUPSA("Disgust (non-passion delusion)"),
+    PURUSH_VED("Male gendered infatuation"),
+    STRI_VED("Female gendered infatuation"),
+    NAPUNSAK_VED("Neuter gendered infatuation"),
 
-    // Vedaniya (2)
-    SHATA_VEDANIYA,
-    ASHATA_VEDANIYA,
+    DAAN_ANTARAI("Obstruction to charity"),
+    LABH_ANTARAI("Obstruction to gain"),
+    BHOG_ANTARAI("Obstruction to enjoyment"),
+    UPABHOG_ANTARAI("Obstruction to repeated enjoyment"),
+    VIRYA_ANTARAI("Obstruction to energy / power"),
 
-    // Gotra (2)
-    UCCHA_GOTRA,
-    NICHA_GOTRA,
+    SHAATA_VEDANIYA("Pleasant-feeling karma"),
+    ASHAATA_VEDANIYA("Unpleasant-feeling karma"),
 
-    // Ayushya (4)
-    DEVA_AYUSHYA,
-    MANUSHYA_AYUSHYA,
-    TIRYANCH_AYUSHYA,
-    NARAKA_AYUSHYA,
+    UCHCHH_GOTRA("High-status determining karma"),
+    NICHCHH_GOTRA("Low-status determining karma"),
 
-    // Nama (top-level branches)
-    GATI_NAMA,
-    JATI_NAMA,
-    SHARIRA_NAMA,
-    ANGOPANGA_NAMA,
-    SAMHANANA_NAMA,
-    SAMSTHANA_NAMA,
-    VARNA_NAMA,
-    GANDHA_NAMA,
-    RASA_NAMA,
-    SPARSHA_NAMA
+    DEV_AAYUSHYA("Celestial life-span karma"),
+    MANUSHYA_AAYUSHYA("Human life-span karma"),
+    TIRYANCH_AAYUSHYA("Animal life-span karma"),
+    NARAK_AAYUSHYA("Infernal life-span karma"),
+
+    GATI_NAAM("Realm-determining nama-karma"),
+    JAATI_NAAM("Birth-class-determining nama-karma"),
+    SHARIR_NAAM("Body-type-determining nama-karma"),
+    ANGOPANG_NAAM("Limb-determining nama-karma"),
+    SAMHAANAN_NAAM("Joint-binding nama-karma"),
+    SAMSTHAAN_NAAM("Symmetry / stature nama-karma"),
+    VARN_NAAM("Bodily-colour nama-karma"),
+    GANDH_NAAM("Bodily-smell nama-karma"),
+    RAAS_NAAM("Bodily-taste nama-karma"),
+    SPARSH_NAAM("Bodily-touch nama-karma");
+
+    private final String englishMeaning;
+
+    KarmaSubType(String englishMeaning) {
+        this.englishMeaning = englishMeaning;
+    }
+
+    @Override
+    public String englishMeaning() {
+        return englishMeaning;
+    }
 }

@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+/**
+ * Hindi: {@code Ghatna} shaalin.
+ * English: Simple publish–subscribe bus for karma events in a simulation.
+ */
 public final class SimulationEventBus {
     private final List<Consumer<KarmaEvent>> listeners = new ArrayList<>();
 

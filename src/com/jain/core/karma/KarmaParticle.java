@@ -1,5 +1,9 @@
 package com.jain.core.karma;
 
+/**
+ * Hindi: {@code Karm anu}.
+ * English: One karma particle with type, subtype, intensity, duration, and lifecycle state.
+ */
 public record KarmaParticle(
         KarmaType type,
         KarmaSubType subType,

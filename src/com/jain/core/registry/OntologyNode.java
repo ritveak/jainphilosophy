@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Hindi: {@code Tattv} vriksh node.
+ * English: One node in an ontology tree with a concept and child nodes.
+ */
 public final class OntologyNode {
     private final Concept concept;
     private final List<OntologyNode> children = new ArrayList<>();

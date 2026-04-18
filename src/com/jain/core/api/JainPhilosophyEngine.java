@@ -7,10 +7,16 @@ import com.jain.core.karma.KarmaEvent;
 import com.jain.core.karma.KarmaLifecycleService;
 import com.jain.core.reasoning.SyadStatement;
 import com.jain.core.reasoning.SyadvadaReasoner;
+import com.jain.core.pudgala.PudgalaKnowledge;
+import com.jain.core.pudgala.VarganaKind;
 import com.jain.core.registry.OntologyNode;
 import com.jain.core.registry.OntologyRegistry;
 import java.util.List;
 
+/**
+ * Hindi: {@code Jain darshan} aavruttikaran.
+ * English: Facade over karma lifecycle, syadvada, ontology, and pudgala reference data.
+ */
 public final class JainPhilosophyEngine {
     private final KarmaLifecycleService karmaLifecycleService;
     private final SyadvadaReasoner syadvadaReasoner;
@@ -34,5 +40,14 @@ public final class JainPhilosophyEngine {
 
     public OntologyNode ontologyRoot() {
         return ontologyRegistry.root();
+    }
+
+    /** Classifiers and reference data from canonical pudgala literature (see {@link PudgalaKnowledge}). */
+    public String pudgalaSummary() {
+        return PudgalaKnowledge.pudgalaDefinitionSummary();
+    }
+
+    public List<VarganaKind> associableVarganas() {
+        return PudgalaKnowledge.associableVarganasWithSoul();
     }
 }

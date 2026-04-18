@@ -1,21 +1,27 @@
 package com.jain.core.registry;
 
+/**
+ * Hindi: {@code Tattv} kosh.
+ * English: Builds a small default ontology graph (dravya → … → karma).
+ */
 public final class OntologyRegistry {
     public OntologyNode root() {
         OntologyNode dravya = new OntologyNode(Concept.DRAVYA);
-        OntologyNode astikaya = new OntologyNode(Concept.ASTIKAYA);
-        OntologyNode jiva = new OntologyNode(Concept.JIVA);
-        OntologyNode ajiva = new OntologyNode(Concept.AJIVA);
-        OntologyNode pudgala = new OntologyNode(Concept.PUDGALA);
-        OntologyNode karman = new OntologyNode(Concept.KARMAN);
-        OntologyNode ghati = new OntologyNode(Concept.GHATI);
-        OntologyNode aghati = new OntologyNode(Concept.AGHATI);
+        OntologyNode astikaay = new OntologyNode(Concept.ASTIKAAY);
+        OntologyNode jeev = new OntologyNode(Concept.JEEV);
+        OntologyNode ajiv = new OntologyNode(Concept.AJIV);
+        OntologyNode pudgal = new OntologyNode(Concept.PUDGAL);
+        OntologyNode paramanu = new OntologyNode(Concept.PARAMANU);
+        OntologyNode vargan = new OntologyNode(Concept.VARGAN);
+        OntologyNode karm = new OntologyNode(Concept.KARM);
+        OntologyNode ghaati = new OntologyNode(Concept.GHAATI);
+        OntologyNode aghaati = new OntologyNode(Concept.AGHAATI);
 
-        dravya.addChild(astikaya);
-        astikaya.addChild(jiva).addChild(ajiva);
-        ajiva.addChild(pudgala);
-        pudgala.addChild(karman);
-        karman.addChild(ghati).addChild(aghati);
+        dravya.addChild(astikaay);
+        astikaay.addChild(jeev).addChild(ajiv);
+        ajiv.addChild(pudgal);
+        pudgal.addChild(paramanu).addChild(vargan).addChild(karm);
+        karm.addChild(ghaati).addChild(aghaati);
         return dravya;
     }
 }

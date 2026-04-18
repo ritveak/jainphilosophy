@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Hindi: {@code Karm samooh}.
+ * English: Immutable collection of karma particles bound to a soul state.
+ */
 public final class KarmaBundle {
     private final List<KarmaParticle> particles;
 

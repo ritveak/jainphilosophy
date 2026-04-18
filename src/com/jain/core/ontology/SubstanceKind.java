@@ -1,10 +1,27 @@
 package com.jain.core.ontology;
 
-public enum SubstanceKind {
-    JIVA,
-    PUDGALA,
-    KALA,
-    DHARMA_ASTIKAYA,
-    ADHARMA_ASTIKAYA,
-    AKASHA_ASTIKAYA
+import com.jain.core.lexicon.Lexical;
+
+/**
+ * Hindi: {@code Dravya} ke chhah bhed.
+ * English: Kinds of substance (six dravyas in Jain metaphysics).
+ */
+public enum SubstanceKind implements Lexical {
+    JEEV("Soul"),
+    PUDGAL("Matter"),
+    KAAL("Time"),
+    DHARMASTIKAAY("Medium of motion"),
+    ADHARMASTIKAAY("Medium of rest"),
+    AAKAASHSTIKAAY("Space substance");
+
+    private final String englishMeaning;
+
+    SubstanceKind(String englishMeaning) {
+        this.englishMeaning = englishMeaning;
+    }
+
+    @Override
+    public String englishMeaning() {
+        return englishMeaning;
+    }
 }
