@@ -10,6 +10,18 @@ public record KarmaParticle(
         int intensity,
         int duration,
         KarmaState state) {
+    public KarmaParticle {
+        if (subType.parentType() != type) {
+            throw new IllegalArgumentException(
+                    "Karma type "
+                            + type
+                            + " does not match subtype "
+                            + subType
+                            + " (expected "
+                            + subType.parentType()
+                            + ")");
+        }
+    }
 
     public KarmaParticle transitionTo(KarmaState nextState) {
         return new KarmaParticle(type, subType, intensity, duration, nextState);
