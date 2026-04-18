@@ -235,25 +235,6 @@ public class OntologyNode {
 
 ---
 
-## Mermaid Reference (Complete Tatva Structure)
-
-```mermaid
-graph TD
-Dravya --> Astikay
-Dravya --> Nastikay
-Astikay --> Jeev
-Astikay --> Ajiv
-Ajiv --> Pudgal
-Jeev --> Sansari
-Sansari --> Sthavar
-Sansari --> Tras
-Pudgal --> Vargana
-Vargana --> Karman
-Karman --> Ghati
-Karman --> Aghati
-```
-
----
 
 ## Requirements for AI Assistant
 
@@ -286,8 +267,8 @@ Karman --> Aghati
 
 ---
 
-END OF PROMPT
 
+## Mermaid Reference (Complete Tatva Structure)
 
 For reference here is a mermaid diagram detailing every bit of classification
 
