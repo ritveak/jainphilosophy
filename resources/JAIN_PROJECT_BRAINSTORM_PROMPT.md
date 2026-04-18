@@ -329,25 +329,62 @@ The project explicitly tries to model Jain multi-perspective reasoning.
 
 Implemented building blocks:
 
-- `NayaStrategy` = strategy interface for viewpoint-based interpretation
-- `Interpretation` = a viewpoint result with `naya` and `statement`
-- `AnekantavadaReasoner` = collects multiple interpretations from multiple strategies
-- `SyadStatement` = conditional assertion with `condition`, `assertion`, and `mode`
-- `SyadvadaReasoner` = currently returns an illustrative list of qualified assertions
+- `reasoning.assertion.Assertion` = doctrinal claim with:
+  - `subject`
+  - `claim`
+  - `perspective`
+  - `condition`
+  - `sourceReference`
+- `reasoning.assertion.Perspective` = explicit standpoint metadata
+- `reasoning.assertion.Condition` = condition under which the claim is made
+- `reasoning.assertion.SourceReference` = lightweight citation/source slot
+- `NayaKind` = 7 classical naya standpoints
+- `NayaStrategy<T>` = typed strategy for viewpoint-based interpretation with explicit doctrinal identity via `kind()`
+- `Interpretation` = a viewpoint result containing `Perspective` + `Assertion`
+- `AnekantavadaReasoner` = collects multiple interpretations from multiple typed strategies
+- `SyadMode` = enum containing all 7 classical syadvada modes
+- `SyadStatement` = qualified doctrinal assertion pairing `Assertion` + `SyadMode`
+- `SyadvadaReasoner` = accepts either a raw string or a structured `Assertion`
 
-Current `SyadvadaReasoner` output only includes 3 sample modes, not the full saptabhangi:
+`NayaKind` currently includes these 7 classical standpoints:
+
+- `NAIGAM`
+- `SANGRAH`
+- `VYAVAHAR`
+- `RJUSUTRA`
+- `SHABD`
+- `SAMABHIRUDH`
+- `EVAMBHOOT`
+
+`SyadMode` currently includes all 7 classical qualified modes:
 
 - `SYAD_ASTI`
 - `SYAD_NASTI`
 - `SYAD_ASTI_NASTI`
+- `SYAD_AVAKTAVYA`
+- `SYAD_ASTI_AVAKTAVYA`
+- `SYAD_NASTI_AVAKTAVYA`
+- `SYAD_ASTI_NASTI_AVAKTAVYA`
 
-So this area is implemented conceptually, but still partial and intentionally lightweight.
+Important implementation detail:
+
+- the assertion model now lives under `com.jain.core.reasoning.assertion`
+- Nayavada and Syadvada are modeled as related but distinct concerns
+- `NayaStrategy` is now a clearer framework hook than before, but there are still no built-in concrete naya strategy classes
+- `SyadvadaReasoner` currently emits 3 illustrative outputs even though `SyadMode` contains all 7 classical modes
+- this area is stronger than before, but still intentionally lightweight and incomplete as a full doctrinal reasoning engine
 
 Relevant classes:
 
+- `com.jain.core.reasoning.assertion.Assertion`
+- `com.jain.core.reasoning.assertion.Perspective`
+- `com.jain.core.reasoning.assertion.Condition`
+- `com.jain.core.reasoning.assertion.SourceReference`
+- `com.jain.core.reasoning.NayaKind`
 - `com.jain.core.reasoning.NayaStrategy`
 - `com.jain.core.reasoning.Interpretation`
 - `com.jain.core.reasoning.AnekantavadaReasoner`
+- `com.jain.core.reasoning.SyadMode`
 - `com.jain.core.reasoning.SyadStatement`
 - `com.jain.core.reasoning.SyadvadaReasoner`
 
@@ -499,7 +536,7 @@ The project includes a top-level facade:
 It currently exposes:
 
 - karma processing through lifecycle service
-- syadvada evaluation
+- syadvada evaluation from either a raw string or a structured `Assertion`
 - ontology root access
 - pudgala summary
 - soul-associable varganas
@@ -559,14 +596,15 @@ Please keep these distinctions explicit when helping me brainstorm:
 - `SubstanceKind` has the six dravyas, but dravya/guna/paryaya relations are not yet deeply modeled
 - tattvas are discussed in docs but not yet implemented as a major package/model
 - pramana is discussed in docs but not yet coded
-- syadvada currently returns only 3 sample qualified modes, not all 7 saptabhangi modes
-- nayavada is still just a strategy interface plus result record, not a mature taxonomy of naya types
+- the code now has a first-class assertion model, but it is still early and not yet deeply integrated across ontology, karma, and simulation modules
+- syadvada now has a full `SyadMode` enum, but `SyadvadaReasoner` still returns only 3 illustrative outputs rather than a full doctrinal `saptabhangi` evaluator
+- nayavada now has a proper `NayaKind` taxonomy and typed `NayaStrategy<T>`, but there are still no built-in concrete naya strategy implementations
 - karma subtypes are broad but still incomplete, especially compared to the full doctrinal classification trees
 - `KarmaSubType` is a flat enum today, not yet a typed hierarchy or grouped taxonomy object model
 - the karma lifecycle service is simplified and illustrative
 - pudgala is one of the most developed areas in the codebase
 - simulation support exists only as a lightweight hook layer
-- sources / citations are mentioned in docs but not yet deeply attached to domain objects
+- sources / citations are now present in the assertion model, but source attachment is not yet broadly enforced across the rest of the domain model
 
 ## What I want from you in this conversation
 

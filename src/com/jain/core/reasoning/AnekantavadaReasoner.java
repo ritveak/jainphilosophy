@@ -7,7 +7,7 @@ import java.util.List;
  * English: Collects multiple naya-based interpretations of one target.
  */
 public final class AnekantavadaReasoner {
-    public List<Interpretation> perspectives(Object target, List<NayaStrategy> strategies) {
-        return strategies.stream().map(s -> s.interpret(target)).toList();
+    public <T> List<Interpretation> perspectives(T target, List<? extends NayaStrategy<? super T>> strategies) {
+        return strategies.stream().map(strategy -> strategy.interpret(target)).toList();
     }
 }

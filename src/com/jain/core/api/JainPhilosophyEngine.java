@@ -7,6 +7,7 @@ import com.jain.core.karma.KarmaEvent;
 import com.jain.core.karma.KarmaLifecycleService;
 import com.jain.core.reasoning.SyadStatement;
 import com.jain.core.reasoning.SyadvadaReasoner;
+import com.jain.core.reasoning.assertion.Assertion;
 import com.jain.core.pudgala.PudgalaKnowledge;
 import com.jain.core.pudgala.VarganaKind;
 import com.jain.core.registry.OntologyNode;
@@ -35,6 +36,10 @@ public final class JainPhilosophyEngine {
     }
 
     public List<SyadStatement> evaluateSyadvada(String assertion) {
+        return syadvadaReasoner.sevenfold(assertion);
+    }
+
+    public List<SyadStatement> evaluateSyadvada(Assertion assertion) {
         return syadvadaReasoner.sevenfold(assertion);
     }
 
