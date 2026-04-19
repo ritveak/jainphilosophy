@@ -335,6 +335,22 @@ GatiClassification --> Manushya["Manushya — Human realm beings"]
 GatiClassification --> Tiryanch["Tiryanch — Animal/plant realm beings"]
 GatiClassification --> Narak["Narak — Infernal realm beings"]
 
+Sansari --> PranaClassification["Prana — Vitalities classification"]
+PranaClassification --> IndriyaPrana["Indriya Prana — Five senses vitality"]
+PranaClassification --> BalaPrana["Bala Prana — Three forces vitality"]
+PranaClassification --> AyushyaPrana["Ayushya Prana — Life-span vitality"]
+PranaClassification --> ShvasochchhvasPrana["Shvasochchhvas Prana — Respiration vitality"]
+
+IndriyaPrana --> SparshIndriya["Sparsh — Touch vitality"]
+IndriyaPrana --> RasIndriya["Ras — Taste vitality"]
+IndriyaPrana --> GhranIndriya["Ghran — Smell vitality"]
+IndriyaPrana --> ChakshuIndriya["Chakshu — Vision vitality"]
+IndriyaPrana --> ShravanIndriya["Shravan — Hearing vitality"]
+
+BalaPrana --> ManoBala["Mano-bal — Mind vitality"]
+BalaPrana --> VachanBala["Vachan-bal — Speech vitality"]
+BalaPrana --> KayaBala["Kaya-bal — Body vitality"]
+
 %% =========================
 %% PUDGAL CORE
 %% =========================
@@ -652,6 +668,7 @@ AyashahkirtiNam --> AyashahkirtiFully["Ayashahkirti — Shame and dishonour"]
 %% =========================
 
 style SthavarSize fill:#ddd,stroke:#333
+style PranaClassification fill:#ddd,stroke:#333
 style GatiClassification fill:#ddd,stroke:#333
 style PudgalQualityClassification fill:#ddd,stroke:#333
 style StateClassification fill:#ddd,stroke:#333

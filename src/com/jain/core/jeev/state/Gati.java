@@ -1,4 +1,4 @@
-package com.jain.core.state;
+package com.jain.core.jeev.state;
 
 import com.jain.core.lexicon.Lexical;
 

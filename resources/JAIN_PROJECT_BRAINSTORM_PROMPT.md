@@ -1,6 +1,6 @@
 # Jain Philosophy Project Brainstorm Prompt
 
-Use the following as a grounding prompt when talking to any AI assistant about this project.
+Use the following as a grounding prompt when working on this project.
 
 ## Prompt
 
@@ -41,7 +41,7 @@ The current source tree is organized under `src/com/jain/core` with these packag
 - `ontology`
 - `attributes`
 - `state`
-- `pudgala` (now including `pudgala.vargana.karma`)
+- `pudgala`
 - `reasoning`
 - `context`
 - `registry`
@@ -189,6 +189,26 @@ Relevant classes:
 - `com.jain.core.state.Gati`
 - `com.jain.core.state.Gunasthana`
 - `com.jain.core.state.SoulState`
+
+### 3b. Prana (Vitality) classifications
+
+The project models the 10 vitalities (Prana) that manifest in embodied souls:
+
+- `SPARSH_INDRIYA` = Touch vitality
+- `RAS_INDRIYA` = Taste vitality
+- `GHRAN_INDRIYA` = Smell vitality
+- `CHAKSHU_INDRIYA` = Vision vitality
+- `SHRAVAN_INDRIYA` = Hearing vitality
+- `MANO_BAL` = Mind vitality
+- `VACHAN_BAL` = Speech vitality
+- `KAYA_BAL` = Body vitality
+- `SHVASOCHCHHVAS` = Respiration vitality
+- `AYUSHYA` = Life-span vitality
+
+Relevant classes:
+
+- `com.jain.core.jeev.PranaKind`
+- `com.jain.core.jeev.PranaCategory`
 
 ### 4. Karma classifications
 

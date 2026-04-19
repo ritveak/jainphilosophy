@@ -20,6 +20,10 @@ public final class OntologyNode {
         return concept;
     }
 
+    public boolean isClassificationCriterion() {
+        return concept.isClassificationCriterion();
+    }
+
     public List<OntologyNode> children() {
         return Collections.unmodifiableList(children);
     }
