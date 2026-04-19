@@ -1,5 +1,9 @@
 package com.jain.core.pudgala;
 
+import com.jain.core.pudgala.aggregate.PudgalaAggregateClass;
+import com.jain.core.pudgala.paramanu.ParamanuBondingRule;
+import com.jain.core.pudgala.paramanu.ParamanuBondingTable;
+import com.jain.core.pudgala.vargana.VarganaKind;
 import java.util.List;
 
 /**

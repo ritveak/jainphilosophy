@@ -1,6 +1,6 @@
 package com.jain.core.simulation;
 
-import com.jain.core.karma.KarmaEvent;
+import com.jain.core.pudgala.vargana.karma.KarmaEvent;
 
 /**
  * Hindi: {@code Kriya} aadesh.

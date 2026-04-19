@@ -1,4 +1,4 @@
-package com.jain.core.pudgala;
+package com.jain.core.pudgala.motion;
 
 import com.jain.core.lexicon.Lexical;
 

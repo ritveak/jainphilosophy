@@ -1,4 +1,4 @@
-package com.jain.core.karma;
+package com.jain.core.pudgala.vargana.karma;
 
 /**
  * Hindi: {@code Karm chakr} seva.

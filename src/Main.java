@@ -1,15 +1,15 @@
 import com.jain.core.api.JainPhilosophyEngine;
-import com.jain.core.karma.KarmaBundle;
-import com.jain.core.karma.KarmaClass;
-import com.jain.core.karma.KarmaContext;
-import com.jain.core.karma.KarmaEvent;
-import com.jain.core.karma.KarmaSubType;
-import com.jain.core.karma.KarmaType;
-import com.jain.core.pudgala.ChargeParity;
-import com.jain.core.pudgala.JainTradition;
-import com.jain.core.pudgala.ParamanuBondingTable;
-import com.jain.core.pudgala.PudgalaAggregateClass;
-import com.jain.core.pudgala.VarganaOrderTier;
+import com.jain.core.pudgala.vargana.karma.KarmaBundle;
+import com.jain.core.pudgala.vargana.karma.KarmaClass;
+import com.jain.core.pudgala.vargana.karma.KarmaContext;
+import com.jain.core.pudgala.vargana.karma.KarmaEvent;
+import com.jain.core.pudgala.vargana.karma.KarmaSubType;
+import com.jain.core.pudgala.vargana.karma.KarmaType;
+import com.jain.core.pudgala.paramanu.ChargeParity;
+import com.jain.core.context.JainContext;
+import com.jain.core.pudgala.paramanu.ParamanuBondingTable;
+import com.jain.core.pudgala.aggregate.PudgalaAggregateClass;
+import com.jain.core.pudgala.vargana.VarganaOrderTier;
 import com.jain.core.registry.Concept;
 
 /**
@@ -27,10 +27,10 @@ public class Main {
         System.out.println("Karma particles after action: " + updated.particles().size());
         System.out.println("Event derived karma type: " + event.type());
         System.out.println("Event subtype group: " + event.subTypeGroup().orElse(null));
-        System.out.println("Ghati karma types: " + engine.karmaTypesInClass(KarmaClass.GHATI));
-        System.out.println("Mohaniya groups: " + engine.karmaGroups(KarmaType.MOHANIYA));
-        System.out.println("Mohaniya subtypes: " + engine.karmaSubtypes(KarmaType.MOHANIYA).size());
-        System.out.println("Syadvada sample: " + engine.evaluateSyadvada("the soul is bound").get(0));
+        System.out.println("Ghati karma types: " + engine.karmaTypesInClass(null, KarmaClass.GHATI));
+        System.out.println("Mohaniya groups: " + engine.karmaGroups(null, KarmaType.MOHANIYA));
+        System.out.println("Mohaniya subtypes: " + engine.karmaSubtypes(null, KarmaType.MOHANIYA).size());
+        System.out.println("Syadvada sample: " + engine.evaluateSyadvada(null, "the soul is bound").get(0));
         System.out.println("Ontology root concept: " + engine.ontologyRoot().concept());
         Concept sample = Concept.JEEV;
         System.out.println("Lexical sample " + sample.name() + ": " + sample.englishMeaning());
@@ -38,7 +38,7 @@ public class Main {
         System.out.println("Associable varganas: " + engine.associableVarganas());
         System.out.println(
                 "Paramanu bonding 2q+4q dissimilar Shvetambara: "
-                        + ParamanuBondingTable.canBond(2, 4, JainTradition.SHVETAMBAR, ChargeParity.VIPARIT));
+                        + ParamanuBondingTable.canBond(2, 4, JainContext.SHVETAMBAR_MURTIPUJAK, ChargeParity.VIPARIT));
         System.out.println("Vargana order 10 tier: " + VarganaOrderTier.forOrder(10));
         System.out.println(
                 "Aggregate class paramanu touches: " + PudgalaAggregateClass.PARAMANU_DWISPARSH.touchCount());

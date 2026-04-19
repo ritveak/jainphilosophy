@@ -1,6 +1,7 @@
-package com.jain.core.pudgala;
+package com.jain.core.pudgala.vargana;
 
 import com.jain.core.lexicon.Lexical;
+import com.jain.core.pudgala.aggregate.PudgalaAggregateClass;
 import java.util.Optional;
 
 /**

@@ -41,9 +41,9 @@ The current source tree is organized under `src/com/jain/core` with these packag
 - `ontology`
 - `attributes`
 - `state`
-- `karma`
+- `pudgala` (now including `pudgala.vargana.karma`)
 - `reasoning`
-- `pudgala`
+- `context`
 - `registry`
 - `simulation`
 - `lexicon`
@@ -369,18 +369,18 @@ Important implementation detail:
 
 Relevant classes:
 
-- `com.jain.core.karma.KarmaClass`
-- `com.jain.core.karma.KarmaType`
-- `com.jain.core.karma.KarmaSubTypeGroup`
-- `com.jain.core.karma.KarmaSubType`
-- `com.jain.core.karma.KarmaTaxonomy`
-- `com.jain.core.karma.KarmaState`
-- `com.jain.core.karma.KarmaParticle`
-- `com.jain.core.karma.KarmaEvent`
-- `com.jain.core.karma.KarmaContext`
-- `com.jain.core.karma.KarmaBundle`
-- `com.jain.core.karma.KarmaLifecycleService`
-- `com.jain.core.karma.DefaultKarmaLifecycleService`
+- `com.jain.core.pudgala.vargana.karma.KarmaClass`
+- `com.jain.core.pudgala.vargana.karma.KarmaType`
+- `com.jain.core.pudgala.vargana.karma.KarmaSubTypeGroup`
+- `com.jain.core.pudgala.vargana.karma.KarmaSubType`
+- `com.jain.core.pudgala.vargana.karma.KarmaTaxonomy`
+- `com.jain.core.pudgala.vargana.karma.KarmaState`
+- `com.jain.core.pudgala.vargana.karma.KarmaParticle`
+- `com.jain.core.pudgala.vargana.karma.KarmaEvent`
+- `com.jain.core.pudgala.vargana.karma.KarmaContext`
+- `com.jain.core.pudgala.vargana.karma.KarmaBundle`
+- `com.jain.core.pudgala.vargana.karma.KarmaLifecycleService`
+- `com.jain.core.pudgala.vargana.karma.DefaultKarmaLifecycleService`
 
 ### 5. Reasoning, perspective, and qualified assertion classifications
 
@@ -536,9 +536,11 @@ Those are also grouped in helper methods as:
 - `SADRISH`
 - `VIPARIT`
 
-`JainTradition`:
+`JainContext` (Tradition acting as query context):
 
-- `SHVETAMBAR`
+- `SHVETAMBAR_TERAPANTH` (API Default)
+- `SHVETAMBAR_STHANAKVASI`
+- `SHVETAMBAR_MURTIPUJAK`
 - `DIGAMBAR`
 
 `ParamanuBondingTable` currently models canonical bonding patterns across:
@@ -570,21 +572,21 @@ And dark cosmic structure classifications in `DarkStructureKind`:
 
 Relevant classes:
 
-- `com.jain.core.pudgala.ParamanuNature`
+- `com.jain.core.pudgala.paramanu.ParamanuNature`
 - `com.jain.core.pudgala.PudgalaKnowledge`
-- `com.jain.core.pudgala.PudgalaAggregateClass`
-- `com.jain.core.pudgala.PudgalaMotionMode`
-- `com.jain.core.pudgala.PudgalaIntegrationKind`
-- `com.jain.core.pudgala.MatterParinamaKind`
-- `com.jain.core.pudgala.VarganaKind`
-- `com.jain.core.pudgala.VarganaOrderTier`
-- `com.jain.core.pudgala.VarganaSoulAssociation`
-- `com.jain.core.pudgala.ChargeParity`
-- `com.jain.core.pudgala.JainTradition`
-- `com.jain.core.pudgala.ParamanuBondingRule`
-- `com.jain.core.pudgala.ParamanuBondingTable`
+- `com.jain.core.pudgala.aggregate.PudgalaAggregateClass`
+- `com.jain.core.pudgala.motion.PudgalaMotionMode`
+- `com.jain.core.pudgala.aggregate.PudgalaIntegrationKind`
+- `com.jain.core.pudgala.motion.MatterParinamaKind`
+- `com.jain.core.pudgala.vargana.VarganaKind`
+- `com.jain.core.pudgala.vargana.VarganaOrderTier`
+- `com.jain.core.pudgala.vargana.VarganaSoulAssociation`
+- `com.jain.core.pudgala.paramanu.ChargeParity`
+- `com.jain.core.context.JainContext`
+- `com.jain.core.pudgala.paramanu.ParamanuBondingRule`
+- `com.jain.core.pudgala.paramanu.ParamanuBondingTable`
 - `com.jain.core.pudgala.TimeSpacePudgalaUnits`
-- `com.jain.core.pudgala.DarkStructureKind`
+- `com.jain.core.pudgala.aggregate.DarkStructureKind`
 
 ### 7. API facade and simulation hooks
 
@@ -631,6 +633,7 @@ The docs in `readme.md` and `resources/detailed_md_files/*.md` emphasize these b
 - dravya, guna, paryaya as the core modeling foundation
 - tattva-oriented modeling
 - anekantavada, nayavada, syadvada as fundamental modeling principles
+- JainContext (Tradition) as a foundational parameter for queries
 - contextual assertions instead of absolute booleans
 - claim + context + perspective + condition + source reference
 - karma as dynamic transformation, not just static labels

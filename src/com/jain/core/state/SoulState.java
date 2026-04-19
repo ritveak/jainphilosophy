@@ -1,6 +1,6 @@
 package com.jain.core.state;
 
-import com.jain.core.karma.KarmaBundle;
+import com.jain.core.pudgala.vargana.karma.KarmaBundle;
 
 /**
  * Hindi: {@code Jeev avasthaa}.

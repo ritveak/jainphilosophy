@@ -1,5 +1,6 @@
-package com.jain.core.pudgala;
+package com.jain.core.pudgala.paramanu;
 
+import com.jain.core.context.JainContext;
 import java.util.List;
 
 /**
@@ -31,7 +32,7 @@ public final class ParamanuBondingTable {
      * specific matching row; unknown patterns default to false.
      */
     public static boolean canBond(
-            int chargeMultipleA, int chargeMultipleB, JainTradition tradition, ChargeParity parity) {
+            int chargeMultipleA, int chargeMultipleB, JainContext tradition, ChargeParity parity) {
         int a = Math.min(chargeMultipleA, chargeMultipleB);
         int b = Math.max(chargeMultipleA, chargeMultipleB);
         for (ParamanuBondingRule r : rules()) {

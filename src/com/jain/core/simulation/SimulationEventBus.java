@@ -1,6 +1,6 @@
 package com.jain.core.simulation;
 
-import com.jain.core.karma.KarmaEvent;
+import com.jain.core.pudgala.vargana.karma.KarmaEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;

@@ -1,4 +1,4 @@
-package com.jain.core.pudgala;
+package com.jain.core.pudgala.paramanu;
 
 import com.jain.core.lexicon.Lexical;
 

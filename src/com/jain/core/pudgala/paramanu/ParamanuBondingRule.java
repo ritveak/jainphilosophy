@@ -1,4 +1,6 @@
-package com.jain.core.pudgala;
+package com.jain.core.pudgala.paramanu;
+
+import com.jain.core.context.JainContext;
 
 /**
  * Hindi: {@code Paramanu bandh} niyam-pankti.
@@ -15,14 +17,16 @@ public record ParamanuBondingRule(
         boolean digambaraSimilarBonds,
         boolean digambaraDissimilarBonds) {
 
-    public boolean canBond(JainTradition tradition, ChargeParity parity) {
-        return switch (tradition) {
-            case SHVETAMBAR -> parity == ChargeParity.SADRISH
+    public boolean canBond(JainContext tradition, ChargeParity parity) {
+        if (tradition.isShvetambar()) {
+            return parity == ChargeParity.SADRISH
                     ? svetambaraSimilarBonds
                     : svetambaraDissimilarBonds;
-            case DIGAMBAR -> parity == ChargeParity.SADRISH
+        } else if (tradition.isDigambar()) {
+            return parity == ChargeParity.SADRISH
                     ? digambaraSimilarBonds
                     : digambaraDissimilarBonds;
-        };
+        }
+        return false;
     }
 }

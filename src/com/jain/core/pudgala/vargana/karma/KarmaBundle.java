@@ -1,4 +1,4 @@
-package com.jain.core.karma;
+package com.jain.core.pudgala.vargana.karma;
 
 import java.util.ArrayList;
 import java.util.Collections;
