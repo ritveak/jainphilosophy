@@ -1,5 +1,6 @@
 import com.jain.core.api.JainPhilosophyEngine;
 import com.jain.core.karma.KarmaBundle;
+import com.jain.core.karma.KarmaClass;
 import com.jain.core.karma.KarmaContext;
 import com.jain.core.karma.KarmaEvent;
 import com.jain.core.karma.KarmaSubType;
@@ -24,6 +25,9 @@ public class Main {
 
         KarmaBundle updated = engine.processAction(current, event, context);
         System.out.println("Karma particles after action: " + updated.particles().size());
+        System.out.println("Ghati karma types: " + engine.karmaTypesInClass(KarmaClass.GHATI));
+        System.out.println("Mohaniya groups: " + engine.karmaGroups(KarmaType.MOHANIYA));
+        System.out.println("Mohaniya subtypes: " + engine.karmaSubtypes(KarmaType.MOHANIYA).size());
         System.out.println("Syadvada sample: " + engine.evaluateSyadvada("the soul is bound").get(0));
         System.out.println("Ontology root concept: " + engine.ontologyRoot().concept());
         Concept sample = Concept.JEEV;

@@ -2,9 +2,14 @@ package com.jain.core.api;
 
 import com.jain.core.karma.DefaultKarmaLifecycleService;
 import com.jain.core.karma.KarmaBundle;
+import com.jain.core.karma.KarmaClass;
 import com.jain.core.karma.KarmaContext;
 import com.jain.core.karma.KarmaEvent;
 import com.jain.core.karma.KarmaLifecycleService;
+import com.jain.core.karma.KarmaSubType;
+import com.jain.core.karma.KarmaSubTypeGroup;
+import com.jain.core.karma.KarmaTaxonomy;
+import com.jain.core.karma.KarmaType;
 import com.jain.core.reasoning.SyadStatement;
 import com.jain.core.reasoning.SyadvadaReasoner;
 import com.jain.core.reasoning.assertion.Assertion;
@@ -13,6 +18,7 @@ import com.jain.core.pudgala.VarganaKind;
 import com.jain.core.registry.OntologyNode;
 import com.jain.core.registry.OntologyRegistry;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Hindi: {@code Jain darshan} aavruttikaran.
@@ -41,6 +47,30 @@ public final class JainPhilosophyEngine {
 
     public List<SyadStatement> evaluateSyadvada(Assertion assertion) {
         return syadvadaReasoner.sevenfold(assertion);
+    }
+
+    public List<KarmaType> karmaTypesInClass(KarmaClass karmaClass) {
+        return KarmaTaxonomy.typesInClass(karmaClass);
+    }
+
+    public List<KarmaSubTypeGroup> karmaGroups(KarmaType type) {
+        return KarmaTaxonomy.groupsOf(type);
+    }
+
+    public List<KarmaSubType> karmaSubtypes(KarmaType type) {
+        return KarmaTaxonomy.subtypesOf(type);
+    }
+
+    public List<KarmaSubType> karmaSubtypes(KarmaSubTypeGroup group) {
+        return KarmaTaxonomy.subtypesOf(group);
+    }
+
+    public Map<KarmaSubTypeGroup, List<KarmaSubType>> groupedKarmaSubtypes(KarmaType type) {
+        return KarmaTaxonomy.groupedSubtypesOf(type);
+    }
+
+    public boolean isCompatibleKarmaSubtype(KarmaType type, KarmaSubType subType) {
+        return KarmaTaxonomy.isCompatible(type, subType);
     }
 
     public OntologyNode ontologyRoot() {

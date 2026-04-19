@@ -7,19 +7,33 @@ import com.jain.core.lexicon.Lexical;
  * English: Main karma types (eight prakritis).
  */
 public enum KarmaType implements Lexical {
-    GYAANAVARNIYA("Knowledge-obscuring karma"),
-    DARSHANAVARNIYA("Perception-obscuring karma"),
-    MOHANIYA("Deluding karma"),
-    ANTARAI("Obstruction karma"),
-    VEDANIYA("Feeling-producing karma"),
-    NAAM("Body-determining karma"),
-    GOTRA("Status-determining karma"),
-    AAYUSHYA("Life-span-determining karma");
+    GYAANAVARNIYA(KarmaClass.GHATI, "Knowledge-obscuring karma"),
+    DARSHANAVARNIYA(KarmaClass.GHATI, "Perception-obscuring karma"),
+    MOHANIYA(KarmaClass.GHATI, "Deluding karma"),
+    ANTARAI(KarmaClass.GHATI, "Obstruction karma"),
+    VEDANIYA(KarmaClass.AGHATI, "Feeling-producing karma"),
+    NAAM(KarmaClass.AGHATI, "Body-determining karma"),
+    GOTRA(KarmaClass.AGHATI, "Status-determining karma"),
+    AAYUSHYA(KarmaClass.AGHATI, "Life-span-determining karma");
 
+    private final KarmaClass karmaClass;
     private final String englishMeaning;
 
-    KarmaType(String englishMeaning) {
+    KarmaType(KarmaClass karmaClass, String englishMeaning) {
+        this.karmaClass = karmaClass;
         this.englishMeaning = englishMeaning;
+    }
+
+    public KarmaClass karmaClass() {
+        return karmaClass;
+    }
+
+    public boolean isGhati() {
+        return karmaClass == KarmaClass.GHATI;
+    }
+
+    public boolean isAghati() {
+        return karmaClass == KarmaClass.AGHATI;
     }
 
     @Override

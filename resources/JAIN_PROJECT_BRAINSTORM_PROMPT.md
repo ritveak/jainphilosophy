@@ -203,7 +203,23 @@ The project models the 8 main karma types in `KarmaType`:
 - `GOTRA`
 - `AAYUSHYA`
 
-The project also has a flat `KarmaSubType` enum. It is fairly extensive, but not yet a complete doctrinal tree. Current implemented subtype groups are:
+`KarmaType` is now also classified by `KarmaClass`:
+
+- `GHATI`
+- `AGHATI`
+
+The project still uses a `KarmaSubType` enum for concrete subtype values, but it is no longer just a flat list. Each subtype now carries:
+
+- parent `KarmaType`
+- parent `KarmaSubTypeGroup`
+- inherited `KarmaClass`
+- English meaning
+
+The grouped doctrinal structure currently implemented is:
+
+`GYAANAVARNIYA` groups:
+
+- `GYAANAVARNIYA_PANCHAKA`
 
 `GYAANAVARNIYA` subtypes:
 
@@ -212,6 +228,11 @@ The project also has a flat `KarmaSubType` enum. It is fairly extensive, but not
 - `AVADHI_GYAANAVARNIYA`
 - `MANAHPARYAAY_GYAANAVARNIYA`
 - `KEVAL_GYAANAVARNIYA`
+
+`DARSHANAVARNIYA` groups:
+
+- `DARSHANAVARNIYA_DARSHAN_CHATUSTAYA`
+- `DARSHANAVARNIYA_NIDRA_PANCHAKA`
 
 `DARSHANAVARNIYA` subtypes:
 
@@ -224,6 +245,13 @@ The project also has a flat `KarmaSubType` enum. It is fairly extensive, but not
 - `PRACHALA`
 - `PRACHALA_PRACHALA`
 - `STYAANARDDHI`
+
+`MOHANIYA` groups:
+
+- `DARSHAN_MOHANIYA_TRAYA`
+- `CHARITRA_MOHANIYA_ANANTANUBANDHI_KASHAYA_CHATUSTAYA`
+- `CHARITRA_MOHANIYA_NO_KASHAYA_SHATKA`
+- `CHARITRA_MOHANIYA_VEDA_TRAYA`
 
 `MOHANIYA` currently implemented subtypes:
 
@@ -244,6 +272,10 @@ The project also has a flat `KarmaSubType` enum. It is fairly extensive, but not
 - `STRI_VED`
 - `NAPUNSAK_VED`
 
+`ANTARAI` groups:
+
+- `ANTARAI_PANCHAKA`
+
 `ANTARAI` subtypes:
 
 - `DAAN_ANTARAI`
@@ -252,15 +284,27 @@ The project also has a flat `KarmaSubType` enum. It is fairly extensive, but not
 - `UPABHOG_ANTARAI`
 - `VIRYA_ANTARAI`
 
+`VEDANIYA` groups:
+
+- `VEDANIYA_DVAYA`
+
 `VEDANIYA` subtypes:
 
 - `SHAATA_VEDANIYA`
 - `ASHAATA_VEDANIYA`
 
+`GOTRA` groups:
+
+- `GOTRA_DVAYA`
+
 `GOTRA` subtypes:
 
 - `UCHCHH_GOTRA`
 - `NICHCHH_GOTRA`
+
+`AAYUSHYA` groups:
+
+- `AAYUSHYA_CHATUSTAYA`
 
 `AAYUSHYA` subtypes:
 
@@ -268,6 +312,12 @@ The project also has a flat `KarmaSubType` enum. It is fairly extensive, but not
 - `MANUSHYA_AAYUSHYA`
 - `TIRYANCH_AAYUSHYA`
 - `NARAK_AAYUSHYA`
+
+`NAAM` groups currently implemented:
+
+- `NAAM_EXISTENTIAL_DETERMINERS`
+- `NAAM_BODY_FORMATION`
+- `NAAM_SENSORY_QUALITIES`
 
 `NAAM` subtypes currently implemented:
 
@@ -302,9 +352,12 @@ The project has lightweight models around karma:
 - `KarmaBundle` = immutable collection of particles
 - `KarmaLifecycleService` = contract for bonding, activation, shedding
 - `DefaultKarmaLifecycleService` = simplified lifecycle logic
+- `KarmaTaxonomy` = helper for querying types, groups, subtypes, grouped subtypes, and compatibility
 
 Important implementation detail:
 
+- `KarmaParticle` and `KarmaEvent` now validate that a `KarmaSubType` actually belongs to the supplied `KarmaType`
+- `JainPhilosophyEngine` now exposes karma taxonomy queries such as types by class, groups by type, and grouped subtype lookup
 - the current lifecycle logic is intentionally simplified
 - `bond()` creates new `BANDH` karma
 - `activate()` moves `BANDH -> SATTA -> UDAY`
@@ -313,8 +366,11 @@ Important implementation detail:
 
 Relevant classes:
 
+- `com.jain.core.karma.KarmaClass`
 - `com.jain.core.karma.KarmaType`
+- `com.jain.core.karma.KarmaSubTypeGroup`
 - `com.jain.core.karma.KarmaSubType`
+- `com.jain.core.karma.KarmaTaxonomy`
 - `com.jain.core.karma.KarmaState`
 - `com.jain.core.karma.KarmaParticle`
 - `com.jain.core.karma.KarmaEvent`
@@ -600,7 +656,7 @@ Please keep these distinctions explicit when helping me brainstorm:
 - syadvada now has a full `SyadMode` enum, but `SyadvadaReasoner` still returns only 3 illustrative outputs rather than a full doctrinal `saptabhangi` evaluator
 - nayavada now has a proper `NayaKind` taxonomy and typed `NayaStrategy<T>`, but there are still no built-in concrete naya strategy implementations
 - karma subtypes are broad but still incomplete, especially compared to the full doctrinal classification trees
-- `KarmaSubType` is a flat enum today, not yet a typed hierarchy or grouped taxonomy object model
+- karma taxonomy is now grouped and safer than before, but it is still enum-based and not yet a richer object graph or fully complete doctrinal hierarchy
 - the karma lifecycle service is simplified and illustrative
 - pudgala is one of the most developed areas in the codebase
 - simulation support exists only as a lightweight hook layer
