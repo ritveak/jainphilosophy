@@ -13,13 +13,21 @@ import com.jain.core.pudgala.vargana.karma.KarmaType;
 import com.jain.core.reasoning.SyadStatement;
 import com.jain.core.reasoning.SyadvadaReasoner;
 import com.jain.core.reasoning.assertion.Assertion;
+import com.jain.core.pudgala.ahar.AharIntakeChannel;
+import com.jain.core.pudgala.ahar.AharKind;
+import com.jain.core.pudgala.ahar.AharMateriality;
+import com.jain.core.pudgala.ahar.AharTaxonomy;
+import com.jain.core.pudgala.ahar.KavalAharForm;
+import com.jain.core.pudgala.ahar.KavalAharKind;
 import com.jain.core.pudgala.PudgalaKnowledge;
 import com.jain.core.pudgala.vargana.VarganaKind;
+import com.jain.core.registry.Concept;
 import com.jain.core.registry.OntologyNode;
 import com.jain.core.registry.OntologyRegistry;
 import com.jain.core.context.JainContext;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Hindi: {@code Jain darshan} aavruttikaran.
@@ -91,7 +99,59 @@ public final class JainPhilosophyEngine {
         return PudgalaKnowledge.pudgalaDefinitionSummary();
     }
 
+    public String aharSummary() {
+        return PudgalaKnowledge.aharClassificationSummary();
+    }
+
     public List<VarganaKind> associableVarganas() {
         return PudgalaKnowledge.associableVarganasWithSoul();
+    }
+
+    public List<AharKind> aharKinds() {
+        return PudgalaKnowledge.aharKinds();
+    }
+
+    public List<AharKind> siblingAharKindsOf(AharKind kind) {
+        return AharTaxonomy.siblingAharKindsOf(kind);
+    }
+
+    public List<AharKind> aharKindsByMateriality(AharMateriality materiality) {
+        return AharTaxonomy.aharKindsByMateriality(materiality);
+    }
+
+    public List<AharKind> aharKindsByChannel(AharIntakeChannel channel) {
+        return AharTaxonomy.aharKindsByChannel(channel);
+    }
+
+    public Optional<AharKind> aharKind(String name) {
+        return AharTaxonomy.findAharKindByName(name);
+    }
+
+    public Optional<AharKind> aharKind(Concept concept) {
+        return AharTaxonomy.aharKindOf(concept);
+    }
+
+    public List<KavalAharKind> kavalAharKinds() {
+        return PudgalaKnowledge.kavalAharKinds();
+    }
+
+    public List<KavalAharKind> kavalAharKinds(AharKind kind) {
+        return AharTaxonomy.subdivisionsOf(kind);
+    }
+
+    public List<KavalAharKind> siblingKavalAharKindsOf(KavalAharKind kind) {
+        return AharTaxonomy.siblingKavalAharKindsOf(kind);
+    }
+
+    public List<KavalAharKind> kavalAharKindsByForm(KavalAharForm form) {
+        return AharTaxonomy.kavalAharKindsByForm(form);
+    }
+
+    public Optional<KavalAharKind> kavalAharKind(String name) {
+        return AharTaxonomy.findKavalAharKindByName(name);
+    }
+
+    public Optional<KavalAharKind> kavalAharKind(Concept concept) {
+        return AharTaxonomy.kavalAharKindOf(concept);
     }
 }

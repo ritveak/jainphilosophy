@@ -306,7 +306,19 @@ public enum Concept implements Lexical {
     WHITE("White — one of the five primary colours", false),
     YASHAHKIRTI_FULLY("Yashahkirti — Fame and honour", false),
     YASHAHKIRTI_NAM("Yashahkirti — Honour and fame", false),
-    YELLOW("Yellow — one of the five primary colours", false);
+    YELLOW("Yellow — one of the five primary colours", false),
+    AHAR_METHODOLOGY("Ahar — Physical and subtle intake methodologies", true),
+    OJ_AHAR("Ojahara — Energy absorption", false),
+    ROM_AHAR("Romahara — Pore absorption", false),
+    KAVAL_AHAR("Kavalahara — Morsel intake", false),
+    LEP_AHAR("Lepahara — Smearing intake", false),
+    MANAS_AHAR("Manasahara — Mental intake", false),
+    KARMAN_AHAR("Karmanahara — Karmic intake", false),
+    KAVAL_AHAR_CLASSIFICATION("Kaval Ahar Types — Sub-classification of morsel intake", true),
+    ASANAM("Asanam — Solid food morsels", false),
+    PAANAM("Paanam — Liquid food", false),
+    KHAIMAM("Khaimam — Snacks", false),
+    SAIMAM("Saimam — Taste enhancers", false);
 
     private final String englishMeaning;
     private final boolean isClassificationCriterion;

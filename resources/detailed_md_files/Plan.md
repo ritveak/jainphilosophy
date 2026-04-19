@@ -396,6 +396,21 @@ Pudgal --> StructureClassification["Structure — Classification by form and agg
 Pudgal --> TouchBasedClassification["Touch-based — Classification by touch count"]
 Pudgal --> FunctionClassification["Function — Classification by karmic or bodily role"]
 Pudgal --> PudgalQualityClassification["Quality Set — Classification by colour, taste, smell, touch"]
+Pudgal --> AharMethodology["Ahar — Physical and subtle intake methodologies"]
+
+%% AHAR
+AharMethodology --> OjAhar["Ojahara — Energy absorption"]
+AharMethodology --> RomAhar["Romahara — Pore absorption"]
+AharMethodology --> KavalAhar["Kavalahara — Morsel intake"]
+AharMethodology --> LepAhar["Lepahara — Smearing intake"]
+AharMethodology --> ManasAhar["Manasahara — Mental intake"]
+AharMethodology --> KarmanAhar["Karmanahara — Karmic intake"]
+
+KavalAhar --> KavalAharClassification["Kaval Ahar Types — Sub-classification of morsel intake"]
+KavalAharClassification --> Asanam["Asanam — Solid food morsels"]
+KavalAharClassification --> Paanam["Paanam — Liquid food"]
+KavalAharClassification --> Khaimam["Khaimam — Snacks"]
+KavalAharClassification --> Saimam["Saimam — Taste enhancers"]
 
 %% STATE
 StateClassification --> SthulaSthula["Sthula-Sthula — Gross solid matter, like wood or stone"]
@@ -671,6 +686,8 @@ style SthavarSize fill:#ddd,stroke:#333
 style PranaClassification fill:#ddd,stroke:#333
 style GatiClassification fill:#ddd,stroke:#333
 style PudgalQualityClassification fill:#ddd,stroke:#333
+style AharMethodology fill:#ddd,stroke:#333
+style KavalAharClassification fill:#ddd,stroke:#333
 style StateClassification fill:#ddd,stroke:#333
 style StructureClassification fill:#ddd,stroke:#333
 style TouchBasedClassification fill:#ddd,stroke:#333

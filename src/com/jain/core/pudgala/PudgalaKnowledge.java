@@ -1,5 +1,8 @@
 package com.jain.core.pudgala;
 
+import com.jain.core.pudgala.ahar.AharKind;
+import com.jain.core.pudgala.ahar.AharTaxonomy;
+import com.jain.core.pudgala.ahar.KavalAharKind;
 import com.jain.core.pudgala.aggregate.PudgalaAggregateClass;
 import com.jain.core.pudgala.paramanu.ParamanuBondingRule;
 import com.jain.core.pudgala.paramanu.ParamanuBondingTable;
@@ -17,6 +20,18 @@ public final class PudgalaKnowledge {
 
     public static String pudgalaDefinitionSummary() {
         return "Ajiva dravya; murta; the only extensive sense-perceptible substance; permanent yet origination-decay-permanence modes; integrates and disintegrates.";
+    }
+
+    public static String aharClassificationSummary() {
+        return "Ahar classifies pudgala intake into Oja, Roma, Kavala, Lepa, Manasa, and Karmana forms; Kavala further divides into Asanam, Paanam, Khaimam, and Saimam.";
+    }
+
+    public static List<AharKind> aharKinds() {
+        return AharTaxonomy.allAharKinds();
+    }
+
+    public static List<KavalAharKind> kavalAharKinds() {
+        return AharTaxonomy.subdivisionsOf(AharKind.KAVAL_AHAR);
     }
 
     public static List<PudgalaAggregateClass> aggregateClassesByTouch() {

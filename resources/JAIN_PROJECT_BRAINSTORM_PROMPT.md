@@ -93,6 +93,9 @@ Current ontology graph shape:
 - `ASTIKAAY -> JEEV, AJIV`
 - `AJIV -> PUDGAL`
 - `PUDGAL -> PARAMANU, VARGAN, KARM`
+- `PUDGAL -> AHAR_METHODOLOGY`
+- `AHAR_METHODOLOGY -> OJ_AHAR, ROM_AHAR, KAVAL_AHAR, LEP_AHAR, MANAS_AHAR, KARMAN_AHAR`
+- `KAVAL_AHAR -> KAVAL_AHAR_CLASSIFICATION -> ASANAM, PAANAM, KHAIMAM, SAIMAM`
 - `KARM -> GHAATI, AGHAATI`
 
 ### 2. Attribute classifications for matter
@@ -552,6 +555,68 @@ Those are also grouped in helper methods as:
 - `KRAM_PANDRAH` = order 15, intermediate / uncertain
 - `KRAM_SOLAH_TEIS` = orders 16-23, eight-touch, weight-bearing
 
+The project now also models pudgala intake classifications through `com.jain.core.pudgala.ahar`.
+
+`AharKind` currently models 6 primary ahar methodologies:
+
+- `OJ_AHAR` = subtle vitality / embryonic nourishment intake
+- `ROM_AHAR` = intake through pores or body surface
+- `KAVAL_AHAR` = ordinary morsel intake through the mouth
+- `LEP_AHAR` = intake through smearing / bodily application
+- `MANAS_AHAR` = subtle mental satisfaction / intake
+- `KARMAN_AHAR` = subtle karmic intake
+
+Each `AharKind` now carries:
+
+- transliterated name
+- English meaning
+- doctrinal description
+- `AharMateriality`
+- `AharIntakeChannel`
+- whether it supports subdivision (`KAVAL_AHAR` only)
+
+`AharMateriality` currently has:
+
+- `GROSS`
+- `MIXED`
+- `SUBTLE`
+
+`AharIntakeChannel` currently has:
+
+- `VITAL_ASSIMILATION`
+- `BODY_SURFACE`
+- `MOUTH`
+- `BODY_APPLICATION`
+- `MENTAL`
+- `KARMIC`
+
+`KavalAharKind` models the 4 canonical subdivisions of kaval ahar:
+
+- `ASANAM` = solid meal morsels
+- `PAANAM` = liquid nourishment
+- `KHAIMAM` = snacks / chewables
+- `SAIMAM` = taste enhancers / mouth-freshening adjuncts
+
+`KavalAharForm` currently has:
+
+- `SOLID_MEAL`
+- `LIQUID_NOURISHMENT`
+- `CHEWABLE_SNACK`
+- `TASTE_ENHANCER`
+
+`AharTaxonomy` now supports bidirectional queries such as:
+
+- list all ahar kinds
+- list all kaval ahar kinds and forms
+- get all siblings of `KAVAL_AHAR`
+- get subdivisions of a parent ahar kind
+- query ahar kinds by `AharMateriality`
+- query ahar kinds by `AharIntakeChannel`
+- query kaval kinds by `KavalAharForm`
+- look up ahar / kaval kinds by name
+- map ahar / kaval kinds to and from `Concept`
+- retrieve ontology lineage for ahar and kaval entries
+
 `ChargeParity`:
 
 - `SADRISH`
@@ -593,6 +658,12 @@ And dark cosmic structure classifications in `DarkStructureKind`:
 
 Relevant classes:
 
+- `com.jain.core.pudgala.ahar.AharKind`
+- `com.jain.core.pudgala.ahar.AharMateriality`
+- `com.jain.core.pudgala.ahar.AharIntakeChannel`
+- `com.jain.core.pudgala.ahar.KavalAharKind`
+- `com.jain.core.pudgala.ahar.KavalAharForm`
+- `com.jain.core.pudgala.ahar.AharTaxonomy`
 - `com.jain.core.pudgala.paramanu.ParamanuNature`
 - `com.jain.core.pudgala.PudgalaKnowledge`
 - `com.jain.core.pudgala.aggregate.PudgalaAggregateClass`
@@ -621,6 +692,10 @@ It currently exposes:
 - syadvada evaluation from either a raw string or a structured `Assertion`
 - ontology root access
 - pudgala summary
+- ahar summary
+- ahar list / sibling / materiality / intake-channel queries
+- kaval list / subdivision / sibling / form queries
+- ahar and kaval lookups by both name and `Concept`
 - soul-associable varganas
 
 There are also basic simulation hooks:
