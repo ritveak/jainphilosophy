@@ -13,6 +13,7 @@ Important instructions for you:
 - When suggesting extensions, keep them compatible with the current Java package structure and domain-first design.
 - Prefer clean OOP/domain modeling, explainability, and extensibility over premature framework choices.
 - When you make suggestions, anchor them to the package/class names listed below.
+- Make sure to update this file with any changes that you did after making all changes. Do recheck if it is in sync with the codebase.
 
 ## Project intent
 
