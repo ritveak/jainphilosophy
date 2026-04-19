@@ -10,10 +10,14 @@ import java.util.stream.Collectors;
 public final class DefaultKarmaLifecycleService implements KarmaLifecycleService {
     @Override
     public KarmaBundle bond(KarmaBundle current, KarmaEvent event) {
-        KarmaParticle bonded =
-                new KarmaParticle(
-                        event.type(),
+        KarmaParticle bonded = event.hasSpecificSubtype()
+                ? new KarmaParticle(
                         event.subType(),
+                        Math.max(0, event.intensityDelta()),
+                        Math.max(1, event.durationDelta()),
+                        KarmaState.BANDH)
+                : new KarmaParticle(
+                        event.type(),
                         Math.max(0, event.intensityDelta()),
                         Math.max(1, event.durationDelta()),
                         KarmaState.BANDH);

@@ -346,8 +346,8 @@ The karma lifecycle states modeled in `KarmaState` are:
 
 The project has lightweight models around karma:
 
-- `KarmaParticle` = one particle with type, subtype, intensity, duration, state
-- `KarmaEvent` = an event that modifies or binds karma
+- `KarmaParticle` = one particle with subtype-first classification, intensity, duration, and state
+- `KarmaEvent` = an event that modifies or binds karma using subtype-first classification
 - `KarmaContext` = ascetic practice, right faith, elapsed cycles
 - `KarmaBundle` = immutable collection of particles
 - `KarmaLifecycleService` = contract for bonding, activation, shedding
@@ -356,7 +356,10 @@ The project has lightweight models around karma:
 
 Important implementation detail:
 
-- `KarmaParticle` and `KarmaEvent` now validate that a `KarmaSubType` actually belongs to the supplied `KarmaType`
+- `KarmaSubType` is now treated as the canonical lowest-level classification whenever it is present
+- `KarmaEvent` and `KarmaParticle` can still represent broader type-only cases by keeping subtype nullable and using a fallback `KarmaType`
+- when subtype is present, `KarmaEvent` and `KarmaParticle` derive `KarmaType`, `KarmaSubTypeGroup`, and `KarmaClass` from it
+- if both subtype and fallback type are supplied, they must be compatible
 - `JainPhilosophyEngine` now exposes karma taxonomy queries such as types by class, groups by type, and grouped subtype lookup
 - the current lifecycle logic is intentionally simplified
 - `bond()` creates new `BANDH` karma
@@ -656,7 +659,7 @@ Please keep these distinctions explicit when helping me brainstorm:
 - syadvada now has a full `SyadMode` enum, but `SyadvadaReasoner` still returns only 3 illustrative outputs rather than a full doctrinal `saptabhangi` evaluator
 - nayavada now has a proper `NayaKind` taxonomy and typed `NayaStrategy<T>`, but there are still no built-in concrete naya strategy implementations
 - karma subtypes are broad but still incomplete, especially compared to the full doctrinal classification trees
-- karma taxonomy is now grouped and safer than before, but it is still enum-based and not yet a richer object graph or fully complete doctrinal hierarchy
+- karma taxonomy is now grouped and safer than before, and event/particle modeling is now subtype-first, but the whole system is still enum-based and not yet a richer object graph or fully complete doctrinal hierarchy
 - the karma lifecycle service is simplified and illustrative
 - pudgala is one of the most developed areas in the codebase
 - simulation support exists only as a lightweight hook layer

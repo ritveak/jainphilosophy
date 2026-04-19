@@ -20,11 +20,13 @@ public class Main {
     public static void main(String[] args) {
         JainPhilosophyEngine engine = new JainPhilosophyEngine();
         KarmaBundle current = KarmaBundle.empty();
-        KarmaEvent event = new KarmaEvent(KarmaType.MOHANIYA, KarmaSubType.KRODH_ANANTANUBANDHI, 7, 12);
+        KarmaEvent event = new KarmaEvent(KarmaSubType.KRODH_ANANTANUBANDHI, 7, 12);
         KarmaContext context = new KarmaContext(true, true, 1);
 
         KarmaBundle updated = engine.processAction(current, event, context);
         System.out.println("Karma particles after action: " + updated.particles().size());
+        System.out.println("Event derived karma type: " + event.type());
+        System.out.println("Event subtype group: " + event.subTypeGroup().orElse(null));
         System.out.println("Ghati karma types: " + engine.karmaTypesInClass(KarmaClass.GHATI));
         System.out.println("Mohaniya groups: " + engine.karmaGroups(KarmaType.MOHANIYA));
         System.out.println("Mohaniya subtypes: " + engine.karmaSubtypes(KarmaType.MOHANIYA).size());
