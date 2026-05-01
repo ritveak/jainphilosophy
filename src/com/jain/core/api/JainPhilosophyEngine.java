@@ -25,9 +25,15 @@ import com.jain.core.registry.Concept;
 import com.jain.core.registry.OntologyNode;
 import com.jain.core.registry.OntologyRegistry;
 import com.jain.core.context.JainContext;
+import com.jain.core.jeev.JatiKind;
+import com.jain.core.jeev.SthavarKind;
+import com.jain.core.jeev.PranaKind;
+import com.jain.core.jeev.CognitionLevel;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Hindi: {@code Jain darshan} aavruttikaran.
@@ -153,5 +159,19 @@ public final class JainPhilosophyEngine {
 
     public Optional<KavalAharKind> kavalAharKind(Concept concept) {
         return AharTaxonomy.kavalAharKindOf(concept);
+    }
+
+    public Set<PranaKind> getVitalitiesForJati(String jatiName, CognitionLevel cognitionLevel) {
+        JatiKind kind = JatiKind.valueOf(jatiName.toUpperCase());
+        return kind.getPranas(cognitionLevel == CognitionLevel.SAINI);
+    }
+
+    public List<SthavarKind> getSthavarClassifications() {
+        return Arrays.asList(SthavarKind.values());
+    }
+
+    public Set<com.jain.core.jeev.state.Gati> getGatisForJati(String jatiName) {
+        JatiKind kind = JatiKind.valueOf(jatiName.toUpperCase());
+        return kind.getSupportedGatis();
     }
 }

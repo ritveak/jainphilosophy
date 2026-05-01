@@ -186,13 +186,20 @@ Soul state is currently represented as:
 
 - gunasthana
 - gati
+- jati (Sensory class)
+- cognitionLevel (Saini / Asaini)
 - karma bundle
 
 Relevant classes:
 
-- `com.jain.core.state.Gati`
-- `com.jain.core.state.Gunasthana`
-- `com.jain.core.state.SoulState`
+- `com.jain.core.jeev.state.Gati`
+- `com.jain.core.jeev.state.Gunasthana`
+- `com.jain.core.jeev.state.SoulState`
+- `com.jain.core.jeev.JatiKind`
+- `com.jain.core.jeev.SthavarKind`
+- `com.jain.core.jeev.BodySize`
+- `com.jain.core.jeev.VanaspatiEmbodiment`
+- `com.jain.core.jeev.CognitionLevel`
 
 ### 3b. Prana (Vitality) classifications
 

@@ -326,14 +326,21 @@ Tras --> Trindriya["Trindriya — Three-sensed: touch, taste, smell"]
 Tras --> Chaurindriya["Chaurindriya — Four-sensed: adds sight"]
 Tras --> Panchendriya["Panchendriya — Five-sensed: adds hearing"]
 
-Panchendriya --> Saini["Saini — With mind: sentient and reflective"]
-Panchendriya --> Asaini["Asaini — Without mind: instinctive or mindless"]
+Panchendriya --> PanchendriyaGati["Primary Classification"]
+PanchendriyaGati --> Narak["Naraki: Beings in the hellish realms."]
+PanchendriyaGati --> Tiryanch["Tiryanch: Higher animals, birds, and aquatic life."]
+PanchendriyaGati --> Manushya["Manushya: Human beings."]
+PanchendriyaGati --> Dev["Dev: Celestial or heavenly beings."]
+
+Panchendriya --> CognitiveClassification["Cognitive Classification (Crucial for Karma)"]
+CognitiveClassification --> Asaini["Asaini (Irrational): Five-sensed beings without a functional Mind (Manas). They act purely on instinct."]
+CognitiveClassification --> Saini["Saini (Rational): Beings with a Mind capable of discernment, memory, and spiritual learning. All humans, Devas, and Narakis are Saini; many higher animals are also Saini."]
 
 Sansari --> GatiClassification["Gati — Realm of rebirth classification"]
-GatiClassification --> Dev["Dev — Celestial realm beings"]
-GatiClassification --> Manushya["Manushya — Human realm beings"]
-GatiClassification --> Tiryanch["Tiryanch — Animal/plant realm beings"]
-GatiClassification --> Narak["Narak — Infernal realm beings"]
+GatiClassification --> Dev
+GatiClassification --> Manushya
+GatiClassification --> Tiryanch
+GatiClassification --> Narak
 
 Sansari --> PranaClassification["Prana — Vitalities classification"]
 PranaClassification --> IndriyaPrana["Indriya Prana — Five senses vitality"]
@@ -685,6 +692,8 @@ AyashahkirtiNam --> AyashahkirtiFully["Ayashahkirti — Shame and dishonour"]
 style SthavarSize fill:#ddd,stroke:#333
 style PranaClassification fill:#ddd,stroke:#333
 style GatiClassification fill:#ddd,stroke:#333
+style PanchendriyaGati fill:#ddd,stroke:#333
+style CognitiveClassification fill:#ddd,stroke:#333
 style PudgalQualityClassification fill:#ddd,stroke:#333
 style AharMethodology fill:#ddd,stroke:#333
 style KavalAharClassification fill:#ddd,stroke:#333

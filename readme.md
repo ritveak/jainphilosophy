@@ -36,5 +36,51 @@ This project will adopt design patterns pragmatically as complexity grows:
 A robust and evolving Java service that:
 1. Encodes Jain concepts as a structured knowledge model
 2. Supports learning-oriented simulations and explanations
-3. Serves as a backend for educational and interactive UIs
 4. Acts as a hands-on system design and OOP learning project
+
+## Core Domain Visualization
+
+```mermaid
+graph TD
+    subgraph Jati_Hierarchy
+        E1[Ekendriya] --> S[Sthavar]
+        E2[Dvindriya] --> T[Trasa]
+        E3[Trindriya] --> T
+        E4[Caturindriya] --> T
+        E5[Panchendriya] --> T
+    end
+
+    subgraph Body_Size
+        S --> BAD[Badar / Gross]
+        S --> SUK[Sukshma / Subtle]
+        T --> BAD
+    end
+
+    subgraph Prana_Mapping
+        E1 --- P4[4 Pranas]
+        E2 --- P6[6 Pranas]
+        E3 --- P7[7 Pranas]
+        E4 --- P8[8 Pranas]
+        E5 --- P10[9 or 10 Pranas]
+    end
+
+    subgraph Sthavar_Subtypes
+        S --> PR[Prithvi]
+        S --> AP[Ap]
+        S --> TE[Tejas]
+        S --> VA[Vayu]
+        S --> VN[Vanaspati]
+        VN --> V_PRAT[Pratyeka / Individual]
+        VN --> V_SADH[Sadharana / Shared]
+    end
+
+    subgraph Panchendriya_Classification
+        E5 --> G_NARAK[Naraki]
+        E5 --> G_TIRYANCH[Tiryanch]
+        E5 --> G_MANUSHYA[Manushya]
+        E5 --> G_DEV[Dev]
+        
+        E5 --> C_ASAINI[Asaini / Irrational]
+        E5 --> C_SAINI[Saini / Rational]
+    end
+```
