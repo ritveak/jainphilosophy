@@ -2,11 +2,9 @@ package com.jain.core.pudgala.vargana.karma;
 
 import java.util.Optional;
 import java.util.Objects;
-import java.util.Set;
 
-import com.jain.core.attributes.Sparsha;
 import com.jain.core.pudgala.aggregate.PudgalaAggregateClass;
-import com.jain.core.pudgala.Pudgalastikaay;
+import com.jain.core.ontology.Pudgalastikaay;
 import com.jain.core.pudgala.vargana.Vargana;
 
 /**

@@ -1,7 +1,6 @@
-package com.jain.core.pudgala;
+package com.jain.core.ontology;
 
 import com.jain.core.attributes.Sparsha;
-import com.jain.core.ontology.Astikaay;
 import com.jain.core.pudgala.vargana.Vargana;
 
 import java.util.Set;
