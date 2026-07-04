@@ -1,10 +1,9 @@
 package com.jain.core.ontology;
 
 import com.jain.core.attributes.Sparsha;
-import com.jain.core.pudgala.vargana.Vargana;
+import com.jain.core.pudgala.vargana.VarganaKind;
 
 import java.util.Set;
-import java.util.Optional;
 
 /**
  * Hindi: {@code Pudgalastikaay} — murta dravya.
@@ -19,9 +18,9 @@ public interface Pudgalastikaay extends Astikaay {
     boolean isSukshm();
 
     /**
-     * Retrieves the cluster (Vargana) this particle belongs to, if any.
+     * Retrieves the cluster (vargana) this particle belongs to.
      */
-    Optional<Vargana> getVargana();
+    VarganaKind getVargana();
 
     @Override
     default Set<Sparsha> touchProperties() {

@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import com.jain.core.pudgala.aggregate.PudgalaAggregateClass;
 import com.jain.core.ontology.Pudgalastikaay;
-import com.jain.core.pudgala.vargana.Vargana;
+import com.jain.core.pudgala.vargana.VarganaKind;
 
 /**
  * Hindi: {@code Karm anu}.
@@ -13,58 +13,46 @@ import com.jain.core.pudgala.vargana.Vargana;
  */
 public final class KarmaParticle implements Pudgalastikaay {
     private final KarmaSubType subType;
-    private final KarmaType fallbackType;
+    private final KarmaType karmaType;
     private final int intensity;
     private final int duration;
     private final KarmaState state;
-    private final KarmVargana vargana;
 
     public KarmaParticle(
             KarmaSubType subType,
-            KarmaType fallbackType,
-            int intensity,
-            int duration,
-            KarmaState state,
-            KarmVargana vargana) {
-        Objects.requireNonNull(state, "state must not be null");
-        if (subType == null && fallbackType == null) {
-            throw new IllegalArgumentException("either subType or fallbackType must be provided");
-        }
-        if (subType != null && fallbackType != null && !KarmaTaxonomy.isCompatible(fallbackType, subType)) {
-            throw new IllegalArgumentException(
-                    "karma subtype " + subType + " does not belong to fallback karma type " + fallbackType);
-        }
-        this.subType = subType;
-        this.fallbackType = fallbackType;
-        this.intensity = intensity;
-        this.duration = duration;
-        this.state = state;
-        this.vargana = vargana;
-    }
-
-    public KarmaParticle(
-            KarmaSubType subType,
-            KarmaType fallbackType,
+            KarmaType karmaType,
             int intensity,
             int duration,
             KarmaState state) {
-        this(subType, fallbackType, intensity, duration, state, null);
+        Objects.requireNonNull(state, "state must not be null");
+        if (subType == null && karmaType == null) {
+            throw new IllegalArgumentException("either subType or Karma type must be provided");
+        }
+        if (subType != null && karmaType != null && !KarmaTaxonomy.isCompatible(karmaType, subType)) {
+            throw new IllegalArgumentException(
+                    "karma subtype " + subType + " does not belong to fallback karma type " + karmaType);
+        }
+        this.subType = subType;
+        this.karmaType = karmaType;
+        this.intensity = intensity;
+        this.duration = duration;
+        this.state = state;
     }
 
     public KarmaParticle(KarmaSubType subType, int intensity, int duration, KarmaState state) {
-        this(Objects.requireNonNull(subType, "subType must not be null"), null, intensity, duration, state, null);
+        this(Objects.requireNonNull(subType, "subType must not be null"), null, intensity, duration, state);
     }
 
-    public KarmaParticle(KarmaType fallbackType, int intensity, int duration, KarmaState state) {
-        this(null, Objects.requireNonNull(fallbackType, "fallbackType must not be null"), intensity, duration, state, null);
+    public KarmaParticle(KarmaType karmaType, int intensity, int duration, KarmaState state) {
+        this(null, Objects.requireNonNull(karmaType, "Karma type must not be null"), intensity, duration, state);
     }
 
     public KarmaSubType subType() {
         return subType;
     }
 
-    public KarmaType fallbackType() {
-        return fallbackType;
+    public KarmaType karmaType() {
+        return karmaType;
     }
 
     public int intensity() {
@@ -80,7 +68,7 @@ public final class KarmaParticle implements Pudgalastikaay {
     }
 
     public KarmaType type() {
-        return subType != null ? subType.type() : fallbackType;
+        return subType != null ? subType.type() : karmaType;
     }
 
     public KarmaClass karmaClass() {
@@ -100,7 +88,7 @@ public final class KarmaParticle implements Pudgalastikaay {
     }
 
     public KarmaParticle transitionTo(KarmaState nextState) {
-        return new KarmaParticle(subType, fallbackType, intensity, duration, nextState, vargana);
+        return new KarmaParticle(subType, karmaType, intensity, duration, nextState);
     }
     
     @Override
@@ -109,8 +97,8 @@ public final class KarmaParticle implements Pudgalastikaay {
     }
 
     @Override
-    public Optional<Vargana> getVargana() {
-        return Optional.ofNullable(vargana);
+    public VarganaKind getVargana() {
+        return  VarganaKind.KARM_VARGAN;
     }
 
     @Override
@@ -119,23 +107,21 @@ public final class KarmaParticle implements Pudgalastikaay {
         if (obj == null || obj.getClass() != this.getClass()) return false;
         var that = (KarmaParticle) obj;
         return Objects.equals(this.subType, that.subType) &&
-               Objects.equals(this.fallbackType, that.fallbackType) &&
+               Objects.equals(this.karmaType, that.karmaType) &&
                this.intensity == that.intensity &&
                this.duration == that.duration &&
-               Objects.equals(this.state, that.state) &&
-               Objects.equals(this.vargana, that.vargana);
-    }
+               Objects.equals(this.state, that.state);}
 
     @Override
     public int hashCode() {
-        return Objects.hash(subType, fallbackType, intensity, duration, state, vargana);
+        return Objects.hash(subType, karmaType, intensity, duration, state);
     }
 
     @Override
     public String toString() {
         return "KarmaParticle[" +
                 "subType=" + subType + ", " +
-                "fallbackType=" + fallbackType + ", " +
+                "Karma type=" + karmaType + ", " +
                 "intensity=" + intensity + ", " +
                 "duration=" + duration + ", " +
                 "state=" + state + ']';

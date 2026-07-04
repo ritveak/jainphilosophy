@@ -4,7 +4,7 @@ import com.jain.core.lexicon.Lexical;
 
 /**
  * Hindi: {@code Vargan} ke mukhya prakaar.
- * English: Important functional pudgala clusters (Bhagwati / Gommatsar; Kachhara 2016).
+ * English: Single source of truth for functional pudgala clusters (Bhagwati / Gommatsar; Kachhara 2016).
  */
 public enum VarganaKind implements Lexical {
     AHAR(
@@ -62,5 +62,15 @@ public enum VarganaKind implements Lexical {
     /** Longer doctrinal note (English). */
     public String description() {
         return description;
+    }
+
+    /** Whether this vargana is associated with the soul in the current model. */
+    public boolean isSoulAssociated() {
+        return association == VarganaSoulAssociation.JEEV_YUKT;
+    }
+
+    /** Whether this represents the karmic vargana. */
+    public boolean isKarmic() {
+        return this == KARM_VARGAN;
     }
 }
